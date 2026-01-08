@@ -391,6 +391,19 @@ body[data-theme="dark"] .date-input::-webkit-calendar-picker-indicator {
     border-color: var(--accent-color);
 }
 
+/* Dark mode: ensure contrast for active buttons */
+body[data-theme="dark"] .filter-btn.active {
+    color: #000000;
+}
+
+body[data-theme="dark"] .btn-primary {
+    color: #000000;
+}
+
+body[data-theme="dark"] .stats-value {
+    color: #000000;
+}
+
 /* === TODO LIST === */
 .todo-list-section {
     margin-bottom: var(--space-lg);
