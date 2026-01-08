@@ -33,20 +33,28 @@ class TodoApp {
      */
     attachEventListeners() {
         // Add todo on button click
-        this.addBtn.addEventListener('click', () => this.addTodo());
+        if (this.addBtn) {
+            this.addBtn.addEventListener('click', () => this.addTodo());
+        }
 
         // Add todo on Enter key
-        this.todoInput.addEventListener('keypress', (e) => {
-            if (e.key === 'Enter') {
-                this.addTodo();
-            }
-        });
+        if (this.todoInput) {
+            this.todoInput.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') {
+                    this.addTodo();
+                }
+            });
+        }
 
         // Clear completed todos
-        this.clearCompletedBtn.addEventListener('click', () => this.clearCompleted());
+        if (this.clearCompletedBtn) {
+            this.clearCompletedBtn.addEventListener('click', () => this.clearCompleted());
+        }
 
         // Theme toggle
-        this.themeToggleBtn.addEventListener('click', () => this.toggleTheme());
+        if (this.themeToggleBtn) {
+            this.themeToggleBtn.addEventListener('click', () => this.toggleTheme());
+        }
 
         // Filter buttons
         this.filterBtns.forEach(btn => {
@@ -266,10 +274,14 @@ class TodoApp {
     applyTheme() {
         if (this.currentTheme === 'dark') {
             document.body.setAttribute('data-theme', 'dark');
-            this.themeIcon.textContent = '☾';
+            if (this.themeIcon) {
+                this.themeIcon.textContent = '☾';
+            }
         } else {
             document.body.removeAttribute('data-theme');
-            this.themeIcon.textContent = '☀';
+            if (this.themeIcon) {
+                this.themeIcon.textContent = '☀';
+            }
         }
     }
 
